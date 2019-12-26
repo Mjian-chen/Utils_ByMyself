@@ -1,5 +1,5 @@
 /**
- * [sortByKey 将对象属性的key按照首字母升序进行排序]
+ * [sortByKey 对象里面的属性根据key的首字母升序排序]
  * @param  {[type]} obj [description]
  * @return {[type]}     [description]
  */
@@ -7,7 +7,14 @@ export function sortByKey(obj){
 	let newObj = {} ;
 	let keys = Object.keys(obj).sort() ;
 	keys.map(key=>{
-		if(typeof obj[key] == 'object'){
+		if(Array.isArray(obj[key])){
+			let newArr = obj[key].map(item=>{
+				if(typeof item == 'object'){
+					return sortByKey(item) ;
+				}
+			})
+			newObj[key] = newArr ;
+		}else if(typeof obj[key] == 'object'){
 			newObj[key] = sortByKey(obj[key])
 		}else{
 			newObj[key] = obj[key]
