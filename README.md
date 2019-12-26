@@ -1,7 +1,7 @@
 # 常用的一些工具方法集合
 
 ### ObjSortBykey 将对象里面的key值根据升序排序（使用递归的方法）
-`
+```
 /**
  * [sortByKey 对象里面的属性根据key的首字母升序排序]
  * @param  {[type]} obj [description]
@@ -26,4 +26,4 @@ export function sortByKey(obj){
     })
     return newObj ;
 }
-`
+````
